@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>js的引入方式</title>
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <link href="" rel="stylesheet">
+    <script>
+    alert('x');
+    </script>
+    <script type="text/javascript" src="./01.js">
+    alert('z'); // 这句是错的,不会执行
+    </script>
+    <script>
+    document.getElementsByTagName('p').style.back.. = 'red';
+    </script>
+</head>
+
+<body>
+    <p></p>
+</body>
+
+</html>

@@ -1,0 +1,1004 @@
+php中的函数名称区分大小写吗？func1()  FUnc1
+	不区分
+
+__call的参数有几个，类型是什么，意义是什么？
+	魔术方法__call()的作用是当程序调用一个不存在或不可见的成员方法时，php会先调用__call()方法，
+	将那个不存在的方法的方法名和参数都存储下来。
+	__call()包含两个参数，第一个参数是那个不存在的方法的方法名，是个字符串类型；
+	第二个参数是那个不存在的方法的所有参数，是个数组类型。
+	本人认为__call()方法的意义更多在于调试，可以定位到错误。同时可以捕捉异常，如果某个方法不存在，
+	则执行其它可替代方法。
+
+如何把$a = ‘123’转化成123，列出两种方式？
+	Settype($a,’integer’);
+	int 强制转换
+	intval()函数
+	$a + 0;
+
+在HTTP 1.0中，状态码 401 的含义是____；如果返回“找不到文件”的提示，则可用 header 函数，其语句为____。
+	答：401表示未授权;header("HTTP/1.0 404 Not Found");[见参考手册》函数参考》HTTP函数》header]
+
+类的属性可以序列化后保存到 session 中，从而以后可以恢复整个类，这要用到的函数是（14）
+	serialize() /unserialize()
+
+网页静态化要用到哪类函数？
+	使用ob系列函数
+
+关于树的数据结构.
+谈谈对mvc的认识
+设计一个网页，使得打开它时弹出一个全屏的窗口，该窗口中有一个文本框和一个按钮。用户在文本框中输入信息后点击按钮就可以把窗口关闭，而输入的信息却在主网页中显示。
+
+如何计算数组中元素的个数？
+	$arr = array(1,2,3,4);
+	echo count($arr); //4
+	$str = 'abcde';
+	echo count($str); // 1
+	echo count(null); // 0
+	//说明:count计算数组以外类型的变量 ,都返回1
+	// 但如果是Null,则返回0
+
+你会如何定义一个没有成员函式或特性的类别 myclass？ 
+class myclass{} 
+10.你如何产生一个 myclass 的物件？ 
+$obj = new myclass(); 
+11.在一个类别内如何存取这个类别的特性及变改它的值？
+
+	使用语句：$this->propertyName，例如： 
+	class myclass{ 
+	private $propertyName; 
+	public function __construct() { 
+
+	$this->propertyName = "value";
+	}
+	}
+
+PHP有几组函数来处理正则表达式？
+	preg系列函数可以处理。具体有以下几个：
+    string preg_quote ( string str [, string delimiter] )
+        转义正则表达式字符 正则表达式的特殊字符包括：. \\ + * ? [ ^ ] $ ( ) { } = ! < > | :。
+    preg_replace -- 执行正则表达式的搜索和替换
+    mixed preg_replace ( mixed pattern, mixed replacement, mixed subject [, int limit] )
+    preg_replace_callback -- 用回调函数执行正则表达式的搜索和替换
+    mixed preg_replace_callback ( mixed pattern, callback callback, mixed subject [, int limit] )
+    preg_split -- 用正则表达式分割字符串
+    array preg_split ( string pattern, string subject [, 
+
+如何实例化一个名为”myclass”的对象？
+
+试举正则表达式对字符串最常用的3种操作？
+	1. 利用正则表达式，实现对一个字符串的切割，切割后返回一个数组。如split()。
+	2. 利用正则可以实现对一个字符串中符合的内容批量替换。如果替换为空则达到了过滤的作用。如preg_replace()。
+	3. 利用正则判断一个字符串中是否含有符合的子字符串。如preg_match()。
+
+你如何访问和设置一个类的属性？
+
+你如何替 PHP 的应用程式侦错？
+	我并不常这样做，我曾经试过很多不同的侦错工具，在 Linux 系统中设定这些工具一点也不容易。不过以下我会介绍一个近来颇受注目的侦错工具。
+	PHP - Advanced PHP Debugger 或称 PHP - APD，第一步是执行以下的指令安装：
+	pear install apd安装后在你的脚本的开头位置加入以下的语句开始进行侦错：
+	apd_set_pprof_trace();执行完毕，打开以下档案来查阅执行日志：
+	apd.dumpdir
+	你也可以使用 pprofp 来格式化日志。
+	详细的资料可以参阅 http://us.php.net/manual/en/ref.apd.php。
+
+在一个类别内如何存取这个类别的特性及变改它的值？
+	使用语句：$this->propertyName，例如：
+	class myclass{ private $propertyName; public function __construct() {   $this->propertyName = "value"; }}
+
+php怎么定义函数？
+	使用关键字function加函数名，参数和函数体来定义函数。格式为：
+	function 函数名(参数){函数体};
+
+13.以下哪一个函式可以把浏览器转向到另一个页面？
+	redir()
+	这不是一个 PHP 函式，会引致执行错误。
+	header()
+	这个是正确答案，header() 用来插入卷头资料，可以用来使浏览器转向到另一个页面，例如：
+	header("Location: http://www.search-this.com/");
+	location()
+	这不是一个 PHP 函式，会引致执行错误。
+	redirect()
+	这不是一个 PHP 函式，会引致执行错误。
+
+COOKIE、SESSION的联系和区别，多台web服务器如何共享 SESSION？
+	使用session_start()调用session,服务器端在生成session文件的同时,生成session ID哈希值和默认值为PHPSESSID的session name,并向客户端发送变量为(默认的是)PHPSESSID(session name),值为一个128位的哈希值.服务器端将通过该cookie与客户端进行交互.
+    session变量的值经php内部系列化后保存在服务器机器上的文本文件中,和客户端的变量名默认情况下为PHPSESSID的coolie进行对应交互.
+    即服务器自动发送了http头:header('Set-Cookie: session_name()=session_id(); path=/');
+	即setcookie(session_name(),session_id());
+    当从该页跳转到的新页面并调用session_start()后,PHP将检查与给定ID相关联的服务器端存贮的session数据,如果没找到,则新建一个数据集.	
+
+正则表达式中的贪婪模式与回溯是什么? 如何使用?
+
+取得查询结果集总数的函数是?
+	mysql_num_rows
+
+页面字符出现乱码，怎么解决?
+	从原则上讲:保证3个地方的编码一致,就不会碰到乱码.
+	1:html源码里,meta信息, charset 的编码
+	2:html文件本身的编码
+	3:从数据库取出来的数据的编码格式.
+	如果有乱码,就从以上3点考虑.
+	具体排查步骤见下:
+	1.首先考虑当前文件是不是设置了字符集。查看是不是meta标签中写了charset，如果是php页面还可以看看是不是在header()函数中指定了charset；
+	2.如果设置了字符集（也就是charset），那么判断当前文件保存的编码格式是否跟页面设置的字符集保持一致，两者必须保持统一；
+	3.如果涉及到从数据库提取数据，那么判断数据库查询时的字符集是否跟当前页面设置的字符集一致，两者必须统一。
+	思考题:
+	如果某网站新建一个栏目,
+	该栏目的html页面使用的都是utf8,数据库也是utf8,
+	但是,有一些老数据需要从以前的数据库取出来,
+	而以前所有的数据库,字符集全部是GBK编码.
+
+如何修改SESSION的生存时间.
+php类的定义是否可以写在多个PHP块中？如下
+	<?php
+	class Cls_A{
+	?>
+	<?php
+	function fun1(){
+	echo 'this is fun1';
+	}
+	}
+	?>
+
+php访问数据库有哪几步？
+	1.连接数据库服务器：
+	        mysql_connect('数据库服务器的主机名或ip','数据库服务器的用户名','数据库服务器的密码');
+	2.选择数据库：                
+	        mysql_select_db(数据库名);
+	3.设置从数据库提取数据的字符集：
+	        mysql_query("set names utf8");
+	4.执行sql语句：
+	        mysql_query(sql语句);
+	5.关闭结果集，释放资源：
+	        mysql_free_result($result);
+	6.关闭与数据库服务器的连接：
+	        mysql_close($link);
+
+有一个一维数组，里面存储整形数据，请写一个函数，将他们按从大到小的顺序排列。要求执行效率高。并说明如何改善执行效率。（该函数必须自己实现，不能使用php函数）
+
+请举例说明在你的开发过程中用什么方法来加快页面的加载速度。
+
+文件上传应该注意哪些细节？
+	1.首现要在php.ini中开启文件上传；
+	2.在php.ini中有一个允许上传的最大值，默认是2MB。必要的时候可以更改；
+	3.上传表单一定要记住在form标签中写上enctype="multipart/form-data"；
+	4.要注意上传文件的大小、文件类型是否符合要求，上传后存放的路径是否存在。
+
+写出一个正则表达式，过虑网页上的所有JS/VBS脚本(即把scrīpt标记及其内容都去掉):preg_replace("/<script[^>].*?>.*?</script>/si", "newinfo", $script);
+	$patt = '/<script([\s\S]*?)<\/script>/';
+	$source = file_get_contents('scr.html');
+	echo preg_replace($patt,'',$source);
+	说明:手册上介绍匹配包括换行符任意字符可用[.\n],但在实际操作中,往往存在问题.
+	所以我们可以用 [\s\S]匹配任意字符.
+	再配合贪婪模式,跨行匹配.
+
+怎么把文件保存到指定目录？怎么避免上传文件重名问题？
+	可以通过上传的文件名获取到文件后缀，然后使用时间戳+文件后缀的方式为文件重新命名，这样就避免了重名。
+	可以自己设置上传文件的保存目录，与文件名拼凑形成一个文件路径，使用move_uploaded_file()，就可以完成将文件保存到指定目录。
+
+有mail.log的一个文档，内容为若干邮件地址，其中用'\n'将邮件地址分隔。要求从中挑选出sina.com的邮件地址（包括从文件读取、过滤到列印出来）。
+mail.log内容如下：
+james@sina.com.cn
+jack@163.com
+zhansan@sohu.com
+lisi@hotmail.com
+wangwu@gmail.com
+aaaa@sina.com
+(如果是大公司,往往还告诉你,该log日志的大小1G,而能供你使用的内存只有500M,让你综合考虑速度,内存来完成该题)
+	1: 如果是小公司,没明确说明日志的大小,可以这样做,最快.
+	$source = file_get_contents('mail.log');
+	$list = explode($source,"\n");
+
+	foreach($list as $v) {
+	    if(substr($v,-9) == '@sina.com') {
+	        echo $v,'<br />';
+	    }
+	}
+
+
+	2:如果大公司,要求考虑内存.
+	这时就不要用file_get_contents了,因为file_get_contents虽然方便,
+	但是,他是把文件内容全部读入内存中去.
+	所以这时候,我们可以逐行读取.
+
+	$fh = fopen('mail.log','r') {
+	    while(!feof($fh)) {
+	        $line = fgets($fh);
+	        if(substr($line,-9) == '@sina.com') {
+	            echo $v,'<br />';
+	         }
+	    }
+	}
+
+js中网页前进和后退的代码
+	<input type=button value=前进 onclick=history.go(1)>   
+	<input type=button value=前进 onclick=history.forward()>       
+	<input type=button value=后退 onclick=history.go(-1)>   
+	<input type=button value=后退 onclick=history.back()>
+
+一个函数的参数不能是对变量的引用，除非在php.ini中把__allow_call_time_pass_reference boolean__设为on.
+
+在 HTML 语言中，页面头部的 meta 标记可以用来输出文件的编码格式，以下是一个标准的 meta 语句
+请使用 PHP 语言写一个函数，把一个标准 HTML 页面中的类似 meta 标记中的 charset 部分值改为 big5
+请注意:
+1. 需要处理完整的 html 页面，即不光此 meta 语句
+2. 忽略大小写
+
+请你详细说一下，你所实现各个模块功能，可以单独说一个网站，比如是用户登陆是怎么实现，怎么运用juqury和ajax ,2如何获取验证码？ 怎样判断用户输入的验证码就是真正的验证码？
+
+session有什么用？怎么使用？
+	session在web开发中具有非常重要的份量。它可以将用户正确登录后的信息记录到服务器的内存中，当用户以此身份访问网站的管理后台时，无需再次登录即可得到身份确认。而没有正确登录的用户则不分配session空间，即便输入了管理后台的访问地址也不能看到页面内容。通过session确定了用户对页面的操作权限。
+    使用session的步骤：
+        1. 启动session：
+            使用session_start()函数来启动。
+        2. 注册会话：
+            直接给$_SESSION数组添加元素即可。
+        3. 使用会话：
+            判断session是否为空或者是否已经注册，如果已经存在则像普通数组使用即可。
+        4. 删除会话：
+            1.可以使用unset删除单个session；
+            2.使用$_SESSION=array()的方式，一次注销所有的会话变量；
+        3.使用session_destroy()函数来彻底销毁session。
+
+请写出php5的构造函数和析构函数?
+	__construct , __destruct
+
+请写出PHP5权限控制修饰符
+	public(公共),private(私用),protected(继承)
+
+写出 访问 http://www.sina.com.cn 所需的报文头，
+同类题目还有: 获得上面url的内容(往往还会问如果10秒读不到就超时退出,怎么做)
+	取报文头可以用php系统函数
+	get_heards(http://www.sina.com.cn);
+	如果还让你取内容
+	1:可用投机取巧,用file_get_contents($url)来读
+	但出题者出这道题往往是想考socket编程,以及文件操作函数还有http协议.
+	所以我们推荐用下一种方法2:
+	$url = 'sohu.com';
+	$sh = fsockopen($url,80,$errno,$errstr,10);
+
+	$w = array(
+	'GET / HTTP/1.0',
+	'Host: sohu.com'
+	);
+	$headstr = implode($w,"\r\n");
+	$headstr .= "\r\n\r\n";
+	//echo $headstr;
+	fwrite($sh,$headstr);
+	while(($line = fgets($sh))&&$line!==false) {
+	    echo $line;
+	}
+
+break和continue的区别？
+	break可以终止循环。continue没有break强大，只能终止本次循环而进入到下一次循环中。
+
+cookie有什么用？怎么使用？
+	1. 记录用户访问的部分信息
+	2. 在页面间传递变量
+	3. 将所查看的internet页存储在cookies临时文件夹中，可以提高以后的浏览速度。
+        创建cookie：
+        setcookie(string cookiename , string value , int expire);
+        读取cookie：
+        通过超级全局数组$_COOKIE来读取浏览器端的cookie的值。
+        删除cookie：有两种方法
+        1.手工删除方法：
+                右击浏览器属性，可以看到删除cookies，执行操作即可将所有cookie文件删除。
+        2.setcookie()方法：
+                 跟设置cookie的方法一样，不过此时讲cookie的值设置为空，有效时间为0或小于当前时间戳。
+
+数组怎么声明？怎么赋值？
+	数组的声明方式主要有两种。
+	1.通过array()函数声明数组；
+        可以通过key=>value的方式分别定义索引和值，也可以不定义数组的索引下标，只给出数组的元素值。
+	2.直接为数组元素赋值,不需要调用array()函数。例如：
+        $arr[0] = 1;
+        $arr[1] = 2;
+
+详细叙述一下怎么样实现用户登陆ajax的无刷新过程。
+
+循环语句有哪几种
+	while(){};
+    do{}whlie();
+    for(){};
+    foreach(){};
+
+数组有哪几种类型？
+	数字索引数组
+	关联数组
+	根据数组构造还可以分一维数组、二维数组、多维数组。
+
+说出有哪几种分支语句。
+	if(){};
+	if(){}else{};
+	if(){}elseif(){}else{};
+	swich(){case1 ,case2,……};
+
+详细说一下一个网站的几个模块，是如何实现过程，用到的技术，比如 登陆模块，。。。。
+
+怎么定义一个整数变量？
+	$变量名=整数值;
+
+如何通过javascript判断一个窗口是否已经被屏蔽。
+
+你是如何认识ajax的？
+	ajax是asynchronous javascript and xml的缩写，是javascript、xml、css、DOM等多个技术的组合。
+	Ajax的工作原理是利用XMLHttpRequest向服务器端发送http请求,并接收返回数据，在发送请求后和返回结果前,
+	并不影响下面的脚本执行,即:异步.
+	减少了用户等待时间，同时也从而降低了网络流量，增强了客户体验的友好程度。
+	Ajax的优点是：
+	1:减轻了服务器端负担，将一部分以前由服务器负担的工作转移到客户端执行，利用客户端闲置的资源进行处理；
+	2.在只局部刷新的情况下更新页面，增加了页面反应速度，使用户体验更友好。
+	3:Ajax的缺点是不利于seo推广优化，因为搜索引擎无法直接访问到ajax请求的内容。
+	4:ajax的核心技术是XMLHttpRequest，它是javascript中的一个对象。
+
+写出session的运行机制
+
+新闻网站，大型论坛网站，sns网站，优化区别？？
+
+你如何理解smarty，smarty的运用过程中注意哪些细节？
+	Smarty是基于MVC概念的一种模板引擎，它将一个页面程序分成了两部分来实现：即视图层和控制层，
+    也就是说smarty技术将用户UI与php代码分离开。
+    这样程序员和美工各司其职，互不干扰。
+    smarty运用过程中要注意以下几个问题：
+        1.正确配置smarty。主要要配置smarty模板文件的路径；
+        2.php页面中使用assign赋值 和 display显示页面；
+        3.smarty模板文件中不允许出现php代码段，所有的注释，变量，函数都要包含在定界符内。
+
+如果理解oop？
+	OOP(object oriented programming)，即面向对象编程，其中两个最重要的概念就是类和对象。
+	世间万物都具有自身的属性和方法，通过这些属性和方法可以区分出不同的物质。
+	属性和方法的集合就形成了类，类是面向对象编程的核心和基础，
+	通过类就将零散的用于实现某个功能的代码有效地管理起来了。
+	类只是具备了某些功能和属性的抽象模型，而实际应用中需要一个一个实体，也就是需要对类进行实例化，类在实例化之后就是对象。
+
+OOP具有三大特点
+	1. 封装性：
+	也称为信息隐藏，就是将一个类的使用和实现分开，只保留部分接口和方法与外部联系，或者说只公开了一些供开发人员使用的方法。
+	于是开发人员只需要关注这个类如何使用，而不用去关心其具体的实现过程，这样就能实现MVC分工合作，也能有效避免程序间相互依赖，实现代码模块间松藕合。
+
+	2. 继承性：
+	就是子类自动继承其父级类中的属性和方法，并可以添加新的属性和方法或者对部分属性和方法进行重写。继承增加了代码的可重用性。
+	php只支持单继承，也就是说一个子类只能有一个父类。
+
+	3. 多态性：
+	子类继承了来自父级类中的属性和方法，并对其中部分方法进行重写。
+	于是多个子类中虽然都具有同一个方法，但是这些子类实例化的对象调用这些相同的方法后却可以获得完全不同的结果，这种技术就是多态性。
+	多态性增强了软件的灵活性。
+
+谈谈 Ajax,数据库触发器，GUI，中断机制的共同思想。谈一谈该种思想
+
+抓取远程图片到本地,你会用什么函数?
+	file_get_contents 或者 curl
+
+简述POST 和GET传输的最大容量分别是多少?
+	POST理论上无限制,
+	根据你php.ini文件配置(默认是8M)
+	不同的web服务器也有不同的什.
+	GET也是理论上无限制,受限于浏览器和web服务器一般是2K
+
+将字符09转换成十进制数字。
+
+有下面语句：
+<input id="txt" type="text" value="baidu" />
+编写代码，当鼠标划过文本框，自动选中文本框中的内容。
+
+你觉得在PV10W的时候, 同等配置下,LUNIX 比WIN快多少?
+
+Ajax从服务器取数据 {id:123, name:"baidu", username:"mm",checked:true};
+分析name对应的值（"baidu").(题目较长，不记得了）
+	json格式
+	javascript支持用json格式直接声明对象.
+	可用对象名.属性名来访问该属性值
+	var man = {age:19,name:'zhangsan'};
+	alert(man.name);
+
+Ajax,数据库触发器，GUI，中断机制的共同思想。谈一谈该种思想（机制）
+
+解释下面语句的意思：document.form["formName"].submit;
+2.有下面语句：
+<input id="txt" type="text" value="baidu" />
+编写代码，当鼠标划过文本框，自动选中文本框中的内容。
+3.将字符09转换成十进制数字。
+4将1234567890转换成1,234,567,890 每3位用逗号隔开的形式。
+5谈谈用最新技术如何写个大型播客，像优酷网之类
+6.在文本框中输入一个年份，判断其生肖，并输出在文本框旁边。
+对html和javaServlet都要求写出。
+7.谈关于客户体验的问题。
+8谈谈 Ajax,数据库触发器，GUI，中断机制的共同思想。谈一谈该种思想（机制）
+9有一个表 PRODUCT(ID,NAME,PRICE,COUNT);
+在执行一下查询的时候速度总是很慢：
+SELECT * FROM PRODUCT WHERE PRICE=100;
+在price字段上加上一个非聚簇索引，查询速度还是很慢。
+（1）分析查询慢的原因。
+（2）如何进行优化。
+	没有，见百度，百度的面试
+
+请说明php中传值与传引用的区别。什么时候传值什么时候传引用?
+
+指出一些在PHP输入一段HTML代码的办法。
+
+下面哪个函数可以打开一个文件，以对文件进行读和写操作?
+　　(a) fget() (b) file_open() (c) fopen() (d) open_file()
+
+下面哪个选项没有将 john 添加到users 数组中? 
+　　(a) $users[] = ‘john’;
+　　(b) array_add($users,’john’);
+　　(c) array_push($users,‘john’);
+　　(d) $users ||= ‘john’;
+
+JS的转向函数是?怎么引入一个外部JS文件?
+ 	window.location.href = newurl;//javascript操作DOM   
+
+使用php写一段简单查询，查出所有姓名为“张三”的内容并打印出来 (2分)
+　　表名　UserName　Tel　Content　Date
+　　　　　张三 13333663366 大专毕业 2006-10-11
+　　　　　张三 13612312331 本科毕业 2006-10-15
+　　　　　张四 021-55665566 中专毕业 2006-10-15
+　　请根据上面的题目完成代码：
+　　$mysql_db=mysql_connect("local","root","pass");
+　　@mysql_select_db("DB",$mysql_db);
+
+　　41、如何使用下面的类,并解释下面什么意思?(3)
+　　class test{
+　　function Get_test($num){
+　　$num=md5(md5($num)."En");
+　　return $num;
+　　}
+　　}
+
+$arr = array('james', 'tom', 'symfony'); 请打印出第一个元素的值
+	print_r($arr[0]); //数组基本知识
+
+下面的代码用来做什么？请解释。 
+$date='08/26/2003';
+print ereg_replace("([0-9]+)/([0-9]+)/([0-9]+)","\\2/\\1/\\3",$date);
+	这是把一个日期从 MM/DD/YYYY 的格式转为 DD/MM/YYYY 格式。我的一个好朋友告诉我可以把这个正规表达式拆解为以下的语句，对于如此简单的表示是来说其实无须拆解，纯粹为了解说的方便： 
+	// 对应一个或更多 0-9，后面紧随一个斜号$regExpression = "([0-9]+)/";// 应一个或更多 0-9，后面紧随另一个斜号$regExpression .= "([0-9]+)/";// 再次对应一个或更多 0-9$regExpression .= "([0-9]+)";至于 \\2/\\1/\\3 则是用来对应括号，第一个括号对的是月份，第二个括号对应的是日期，第三个括号对应的是年份。
+	给你一行文字 $string，你会如何编写一个正规表达式，把 $string 内的 HTML 标签除去？
+	首先，PHP 有内建函式 strip_tags() 除去 HTML 标签，为何要自行编写正规表达式？好了，便当作是面试的一道考题吧，我会这样回答： 
+	$stringOfText = "This is a test";
+	$expression = "/<(.*?)>(.*?)<\/(.*?)>/";
+	echo preg_replace($expression, "\\2", $stringOfText);// 有人说也可以使用 /(<[^>]*>)/ $expression = "/(<[^>]*>)/";
+	echo preg_replace($expression, "", $stringOfText);
+
+GD 函式库用来做什么？
+	这个可能是我最喜欢的函式库，自从 PHP 4.3.0 版本后 GD 便内建在 PHP 系统中。这个函式库让你处理和显示各式格式的图档，它的另一个常见用途是制作所图档。GD 以外的另一个选择是 ImageMagick，但这个函式库并不内建于 PHP 之中，必须由系统管理员安装在伺服器上。
+
+以Apache模块的方式安装PHP，在文件http.conf中首先要用语句____动态装载PHP模块，
+然后再用语句____使得Apache把所有扩展名为php的文件都作为PHP脚本处理。
+	答：LoadModule php5_module “c:/php/php5apache2.dll”;AddType application/x-httpd-php .php
+
+PHP可以和sql server/oracle等数据库连接吗?
+
+写一个函数，能够遍历一个文件夹下的所有文件和子文件夹。
+	$path = 'D:/lionhit';
+	function scan_dir($path) {
+	    if(is_dir($path)) {
+	        $dh = opendir($path);
+	        while($dirname=readdir($dh)) {
+	            if($dirname===false) {
+	                break;
+	            }
+	            if($dirname == '.'||$dirname == '..') {
+	                continue;    
+	            }
+
+	            if(is_dir($path.'/'.$dirname)) {
+	                scan_dir($path.'/'.$dirname);
+	            }
+	            echo $dirname,"<br />";
+	        }
+	    }
+	}
+
+	scan_dir($path);
+	function scan2($path) {
+	    if(is_dir($path)) {
+	        $dlist = scandir($path);
+	        foreach($dlist as $v) {
+	            if($v != '.' && $v != '..') {
+	                echo $v,"<br />";
+	                scan2($path.'/'.$v);   
+	            }
+	        }
+	    }
+	}
+	scan2($path);
+
+php中WEB上传文件的原理是什么，如何限制上传文件的大小？
+	1，上传文件的表单使用post方式（和get的区别不用说了）；还要加上enctype='multipart/form-data'。
+    2，一般要加上隐藏域：<input type=hidden name='MAX_FILE_SIZE' value=dddddd>，位置在file域前面。value的值是上传文件的客户端字节限制。据说可以减少文件超标时客户端的等待时间，不过我没觉得有什么区别。
+    3，出于安全考虑，file域是不许赋值的。随便在file域输入字符串，然后按submit也不会有反应。必须是第二个字符是冒号的时候（比如空格跟随冒号可以上传一个长度为0字节的“文件”），submit才同意“服务”——不过这个是客户端的措施，跟MAX_FILE_SIZE一样很容易绕过去。
+    限制上传文件大小的因素有
+      1，客户端的隐藏域MAX_FILE_SIZE的数值（可以被绕开）。
+      2，服务器端的upload_max_filesize，post_max_size和memory_limit。这几项不能够用脚本来设置。
+      3，
+
+require的include都可包含文件，二者的区别何在？
+require/include 与 require_once/include_once区别何在?
+	当包含的文件不存在时,
+	include:代码继续往下执行,报一个warning,
+	而require则是报fatal error, 停止执行.
+	*_once只包含一次,即便多次调用.
+	而不加once,则调用一次,包含一次.
+	关于效率:
+	加once需要检测已加载的文件,效率稍低,
+	如果能确认不会多次包含,不必加once
+
+PHP机试题：
+
+一.写一个用户注册模块：
+	1.注册项目有：
+	用户名、密码、确认密码、性别、学历（研究生、大本、专科、高中）、爱好（网游、运动、文学、旅游）、个人介绍。
+	其中学历采用下拉菜单，爱好采用多选框。
+	2.具体要求：
+	A.需要对所有项目做客户端javascript验证，其中用户名项必须使用ajax对用户名做异步验证；
+	B.异步验证文件以及涉及到数据库的文件，需要采用oop编程方式；
+	C.注册成功跳转到模拟会员后台页，该页采用smarty模版技术来加载；
+	D.注册成功后要注意SESSION的使用。
+
+有三个php文件位于同一目录下，内容为
+a.php:-------
+<?php function fa() { echo "in Function A\n"; }?>
+b.php:-------
+<?php include 'a.php'; ?>
+<?php function fb() { fa(); echo "in Function B\n"; } ?>
+c.php:-------
+<?php include 'a.php'; ?>
+<?php include 'b.php'; ?>
+<?php fa(); fb(); ?>
+使用浏览器访问 c.php，请问是否存在问题。
+如果存在问题，请指出修正方法并写出浏览器查看效果
+如果不存在问题，请写出浏览器查看效果
+
+简述如何得到当前执行脚本路径，包括所得到参数。
+说明：例如有一个脚本 www.domain.com,传给他的参数有参数1，参数2，参数3…. 
+传递参数的方法有可能是GET有可能是POST,那么现在请写出类似 
+http://www.domain.com/script.php?? 参数1=值1&参数2=值2..... 的结果
+
+准确的指出以下代码的显示结果
+<table border=1 width=500 style="text-align:center;">
+  <tr>
+    <td rowspan=2 width=50% height=50>a</td>
+    <td width=50% eight=25>d</td>
+  </tr>
+  <tr><td width=50% height=25>b</td></tr>
+  <tr height=25><td colspan=2>c</td></tr>
+</table>
+
+请说明HTML文档中DTD的意义和作用
+
+如何使用javascript获取当前DOM元素(obj)的左上角在整个文档中的位置
+
+准确的指出以下代码的显示结果
+<style>
+.a {
+  position:relative; 
+  height:200px;
+  width:500px;
+  border:solid 1px #000; 
+  background:#FFF;
+}
+#b,#c {position:absolute; width:250px; height:90px;}
+#b {top:30px;left:50px; background:#FF0000; z-index:1;}
+#c {bottom:30px; right:50px; background:#0000FF;}
+</style>
+<div class="a">
+  <div id="b"></div>
+  <div id="c"></div>
+</div>
+
+请写出php连mysql连接中，获取下一个自增长id值的方法，可以写多个。
+
+请问cgi和fastcgi有什么不同，你在什么情况下会选择哪个
+
+vi编辑器中，选中、复制、粘贴、删除的命令各是什么
+
+linux获取文件行数
+
+window（A）中用window.open（）打开了window（B），如何从窗口B调用窗口A中的内容？A、B仅仅是窗口的代号，不是窗口名字
+	window.opener.document.getElementById()
+
+什么是MVC？用过吗？使用时遇到了什么问题，怎么解决的？
+	
+linux  删除当前目录下所有目录名为CVS的子目录的命令
+
+linux查找文件中包含hello的行
+
+linux  如何把一个文件的内容添加到另一个文件的末尾
+	假设把文件a的内容追加到文件b的末尾.
+	more a > b
+
+linux   当更新后，cvs中文件有冲突时。如何判断哪些你编辑的内容和更新下来的内容
+
+linux  如何实时的显示一个文件的输出
+
+请写出让，并说明如何在命令行下运行PHP脚本（写出两种方式）同时向PHP脚本传递参数？
+
+PHP5中魔术方法函数有哪几个，请举例说明各自的用法
+	__sleep 
+	__wakeup 
+	__toString 
+	__set_state 
+	__construct, 
+	__destruct 
+	__call, 
+	__get, 
+	__set, 
+	__isset, 
+	__unset 
+	__clone 
+	__autoload
+
+请对POSIX风格和兼容Perl风格两种正则表达式的主要函数进行类比说明 
+ereg preg_match 
+ereg_replace preg_replace
+
+请说明在php.ini中safe_mode开启之后对于PHP系统函数的影响
+
+PHP的垃圾收集机制是怎样的
+
+使用正则表达式提取一段标识语言（html或xml）代码段中指定标签的指定属性值（需考虑属性值对不规则的情况，如大小写不敏感，属性名值与等号间有空格等）。此处假设需提取test标签的attr属性值，请自行构建包含该标签的串 
+<test attr=”ddd”> 
+<test attr\s*=\s*[“ &brvbar;’](.*?)[” &brvbar;’].*?>
+
+请写一段PHP代码，确保多个进程同时写入同一个文件成功
+	给文件加排他锁
+	flock函数
+
+使对象可以像数组一样进行foreach循环，要求属性必须是私有。
+	思路:
+	1:php5起,foreach已经可以循环对象的属性.
+	2:在类内部写一个公共方法作为接口,来遍历对象的属性(包括私有属性)
+
+
+	class human {
+	    private $v1 = 'v1';
+	    private $v2 = 'v2';
+	    private $v3 = 'v3';
+
+	    public function fore() {
+	        foreach($this as $k=>$v) {
+	            echo $k,'=>',$v,'<br />';
+	        }
+	    }
+	}
+
+	$zhang = new human();
+	$zhang->fore();
+
+请使用socket相关函数（非curl）实现如下功能：构造一个post请求，发送到指定http server的指定端口的指定请求路径（如http://www.example.com:8080/test）。请求中包含以下变量： 
+用户名（username）：温柔一刀 
+密码（pwd）：&123=321&321=123& 
+个人简介（intro）：Hello world! 
+且该http server需要以下cookie来进行简单的用户动作跟踪： 
+cur_query：you&me 
+last_tm：...（上次请求的unix时间戳，定为当前请求时间前10分钟） 
+cur_tm：...（当前请求的unix时间戳） 
+设置超时为10秒，发出请求后，将http server的响应内容输出。复制内容到剪贴板代码:
+Function encode($data, $sep = ‘&’){ 
+while (list($k,$v) = each($data)) { 
+$encoded .= ($encoded ? "$sep" : ""); 
+$encoded .= rawurl
+
+你用什么方法检查PHP脚本的执行效率（通常是脚本执行时间）和数据库SQL的效率（通常是数据库Query时间），并定位和分析脚本执行和数据库查询的瓶颈所在？ 
+1．脚本执行时间，启用xdebug，使用WinCacheGrind分析。 
+2．数据库查询，mysql使用EXPLAIN分析查询，启用slow query log记录慢查询。
+
+Given 
+$text = 'Content-Type: text/xml'; 
+Which of the following prints 'text/xml'? 
+A) print substr($text, strchr($text, ':')); 
+B) print substr($text, strchr($text, ':') + 1); 
+C) print substr($text, strpos($text, ':') + 1); 
+D) print substr($text, strpos($text, ':') + 2); 
+E) print substr($text, 0, strchr($text, ':')
+
+MySQL自增类型(通常为表ID字段)必需将其设为(?)字段
+	int
+
+请写出数据类型(int char varchar datetime text)的意思; 请问varchar和char有什么区别(2分)	
+	整形 字符串 字符串 时间型 文本类型     varchar可以自定义长度
+
+同样上述新闻发布系统：表comment记录用户回复内容，字段如下 (4分)
+
+comment_id 回复id
+id 文章id，关联message表中的id
+comment_content 回复内容
+现通过查询数据库需要得到以下格式的文章标题列表,并按照回复数量排序，回复最高的排在最前面
+文章id 文章标题 点击量 回复数量
+用一个SQL语句完成上述查询，如果文章没有回复则回复数量显示为0	
+
+(一)创建新闻发布系统，表名为message有如下字段 (3分)
+id 文章id
+title 文章标题
+content 文章内容
+category_id 文章分类id
+	hits 点击量
+	create table message(
+	id int not null auto_increment,
+	title varchar(100),
+	content text,
+	category_id int,
+	hits int,
+	primary key(id)
+	);
+
+MYSQL取得当前时间的函数是?，格式化日期的函数是
+	取得当前时间用 now()。
+	在数据库中格式化时间 用DATE_FORMAT(date, format) .
+
+数据库优化：
+有一个表 PRODUCT(ID,NAME,PRICE,COUNT);
+在执行一下查询的时候速度总是很慢：
+SELECT * FROM PRODUCT WHERE PRICE=100;
+在price字段上加上一个非聚簇索引，查询速度还是很慢。
+   （1）分析查询慢的原因。
+   （2）如何进行优化。
+
+上述内容管理系统，表category保存分类信息，字段如下 (3分)
+category_id int(4) not null auto_increment;
+categroy_name varchar(40) not null;
+用户输入文章时，通过选择下拉菜单选定文章分类
+写出如何实现这个下拉菜单
+	$sql = 'select * from category';
+	$rs = mysql_query($sql);
+	$clist = array();
+	while($row = mysql_fetch_assoc($rs)) {
+	    $clist[] = $row;  
+	}
+	echo "<select>";
+	foreach($clist as $v) {
+	    printf('<option value=%d>%s</option>',$v['category_id'],$v['category_name']);
+	}
+	echo "</select>";
+
+谈谈事务处理
+
+优化MYSQL数据库的方法。
+
+CREATE TABLE topid{
+topicId int not null primary key auto_increment,
+title text,
+author varchar(30),
+content blob,
+isDeleted int
+......   //好像在author上定义了一个索引
+}
+CREATE TABLE reply{
+topicId int foreign key,
+replyId int primary key auto_increment,
+replyAuthor varchar(30),
+replyTime datetime,
+context blob
+....... //定义了一个索引和key
+}
+一个为主题表，一个为回复表。
+1.问从性能上考虑，这样做有什么不足。
+2.查询回复时间不超过一个特定的时间段，回复的作者名字以MIKE开头的主题
+   的title，以如下的查询：
+   select * from topic where replyid in (select replyid from
+
+
+给 select * from name='xx' or title like 'xx%' 哪个字段添加索引效率高？
+1) 索引name
+2) 索引title
+3) 索引name 和 title 即组合索引
+	组合索引相关概念
+	title的更高一些
+	因为title重复的可能性比name小.
+
+请写一个函数验证电子邮件的格式是否正确
+
+上述内容管理系统：用户提交内容后，系统生成静态HTML页面；写出实现的基本思路 
+2) 简单描述用户修改以发布内容的实现流程和基本思路
+
+SQL 中LEFT JOIN的含义是__,如果 tbl_user记录了学生的姓名(name)和学号(ID)，
+tbl_score记录了学生（有的学生考试以后被开除了，没有其记录）的学号(ID)和考试成绩(score)以及考试科目(subject)，要想打印出各个学生姓名及对应的的各科总成绩，则可以用SQL语句____.
+答：自然左外连接
+create database phpinterview;
+use phpinterview
+create table tbl_user
+(
+ID                             int                            not null,
+name                           varchar(50)                    not null,
+primary key (ID)
+);
+create table tbl_score
+(
+ID                             int
+
+请设计一套图书馆借书管理系统的数据库表结构；可以记录基本的用户信息、图书信息、借还书信息；数据表的个数不超过6个；请画表格描述表结构（需要说明每个字段的字段名、字段类型、字段含义描述）； 
+在数据库设计中应： 
+1．
+保证每个用户的唯一性； 
+2．
+保证每种图书的唯一性；每种图书对应不等本数的多本图书；保证每本图书的唯一性； 
+3．
+借书信息表中，应同时考虑借书行为与还书行为，考虑借书期限； 
+4．
+保证借书信息表与用户表、图书信息表之间的参照完整性； 
+5．
+限制每个用户最大可借书的本数 
+6．
+若有新用户注册或新书入库，保证自动生成其唯一性标识 
+7．
+为以下的一系列报表需求提供支持：
+（无特定说明，不需编写实现语句，而需在数据库设计中，保证这些报表可以用最多一条SQL语句实现） 
+a) 日统计报表：当日借书本数、当日还书本数报表； 
+b) 实时报表： 
+i. 当前每种书的借出本数、可借本数； 
+ii. 当前系统中所有超期图书、用户的列表及其超期天数 
+iii. 当前系统中所有用户借书的本数，分用户列出（包括没有借书行为的用户）；请编写实现
+
+
+以下请用PHPMYADMIN完成
+
+　　(一)创建新闻发布系统，表名为message有如下字段 (3分)
+　　id 文章id
+　　title 文章标题
+　　content 文章内容
+　　category_id 文章分类id
+　　hits 点击量
+
+　　(二)同样上述新闻发布系统：表comment记录用户回复内容，字段如下 (4分)
+　　comment_id 回复id
+　　id 文章id，关联message表中的id
+　　comment_content 回复内容
+　　现通过查询数据库 需要得到以下格式的文章标题列表,并按照回复数量排序，回复最高的排在最前面
+　　文章id 文章标题 点击量 回复数量
+　　用一个SQL 语句完成上述查询，如果文章没有回复则回复数量显示为0
+
+　　(三)上述内容管理系统，表category保存分类信息，字段如下 (3分)
+　　category_id int(4) not null auto_increment;
+　　categroy_name varchar(40) not null;
+　　用户输入文章时，通过选择下拉菜
+
+查询在线人数，并能处理异常掉线的SQL
+....WHERE ________< now()
+
+写出发贴数最多的十个人名字的SQL，利用下表：
+members(id,username,posts,pass,email)
+select * from members order by posts desc limit 10  //基本select语句和order by
+
+谈关于客户体验的问题。
+
+您是否用过模板引擎? 如果有您用的模板引擎的名字是?
+	用过，smarty
+
+对于大流量的网站,您采用什么样的方法来解决访问量问题?
+	确认服务器硬件是否足够支持当前的流量,数据库读写分离,优化数据表,
+	程序功能规则,禁止外部的盗链,控制大文件的下载,使用不同主机分流主要流量
+
+linux  Vi编辑器中，如何替换指定的字符串	
+	%s/原始字符串/要替换的字符串
+
+如何用命令把mysql里的数据备份出来
+	mysqldump.exe -uusername -ppassword databasename > d:\backfile.sql
+
+如何统计在线人数 除了session 还有其他方法吗？	
+	memcache内存实现动态的在线人数统计
+
+如何把一个GB2312格式的字符串装换成UTF-8格式？
+	$str = '中华民国';
+	$gbk = iconv('utf-8','GBK',$str);
+	echo strlen($str),"<br />";
+	echo strlen($gbk),"<br />";
+	file_put_contents('a.txt',$gbk); //此时打开文件查看,为ANSI编码(即GBK)
+
+您是否用过版本控制软件? 如果有您用的版本控制软件的名字是?
+	用过，svn
+
+apache+mysql+php实现最大负载的方法
+
+使用5种以上的方法去获取一个文件的扩展名
+	function get_ext1($file_name){ 
+	return strrchr($file_name, ‘.’); 
+	} 
+	function get_ext2($file_name){ 
+	return substr($file_name, strrpos($file_name, ‘.’)); 
+	} 
+	function get_ext3($file_name){ 
+	return array_pop(explode(‘.’, $file_name)); 
+	} 
+	function get_ext4($file_name){ 
+	$p = pathinfo($file_name); 
+	return $p['extension']; 
+	} 
+	function get_ext5($file_name){ 
+	return strrev(substr(strrev($file_name), 0, strpos(strrev($file_name), ‘.’))); 
+	}
+
+
+两张表 city表和province表。分别为城市与省份的关系表。
+city:
+id City Provinceid
+1 广州 1
+2 深圳 1
+3 惠州 1
+4 长沙 2
+5 武汉 3
+………. 广州
+province:
+id Province
+1 广东
+2 湖南
+3 湖北
+……….
+（1） 写一条sql语句关系两个表，实现：显示城市的基本信息。？
+（2） 显示字段：城市id ，城市名， 所属省份 。
+如：
+Id（城市id） Cityname(城市名) Privence(所属省份)
+。。。。。。。。。
+。。。。。。。。。
+（2）如果要统计每个省份有多少个城市，请用group by 查询出来。？
+显示字段：省份id ，省份名，包含多少个城市。
+ANSWER:
+1.select A.id,A.Cityname,B.Province from city A,province B where A.provinceid=B.id
+2.select B.id,B.Province,count(*) as num from city A,pr
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

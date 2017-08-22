@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>第27课 大图片背景</title>
+	<style>
+		#test1{
+			width:500px;
+			height:500px;
+			background-image:url(small.jpg);
+			background-repeat:no-repeat;
+			background-position:center right;
+			border:1px solid orange;
+		}
+
+		#test2{
+			width:50px;
+			height:30px;
+			border:1px solid blue;
+			/*background-image:url(bg.png);
+			background-position:-150px -530px;*/
+			background:gray url(bg.png) no-repeat -150px -524px;
+		}
+	</style>
+</head>
+<body>
+	<div id="test1"></div>
+	<div id="test2"></div>
+</body>
+</html>

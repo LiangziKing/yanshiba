@@ -1,0 +1,80 @@
+.clr{
+	width:0px;
+	height:0px;
+	clear:both;
+}
+
+#container {
+    width: 1002px;
+}
+
+#header {
+    height: 128px;
+    background: gray url(./top_bg.jpg);
+}
+
+#nav li {
+    /*background:purple;*/
+    width: 90px;
+    margin-right: 1px;
+    float: left;
+}
+
+#nav li a {
+    font-size: 16px;
+    font-family: '微软雅黑';
+    color: #363636;
+    display: block;
+    width: 90px;
+    height: 37px;
+    text-align: center;
+}
+
+#nav a:hover {
+    color: white;
+    background: url(./nav_on.gif);
+}
+
+#nav a:visited {}
+
+#nav a:hover {}
+
+#nav a:active{}
+
+#main{
+
+}
+
+#lside{
+	width:694px;
+	height:600px;
+	border:1px solid gray;
+	background:blue;
+	float:left;
+}
+
+.subtitle{
+	height:37px;
+	background:pink;
+}
+
+
+.four{
+	width:326px;
+	height:200px;
+	background:gray;
+	margin:10px;
+	float:left;
+}
+
+#rside{
+	width:294px;
+	height:600px;
+	background:green;
+	float:right;
+}
+
+#footer{
+	height:120px;
+	background:black;
+}

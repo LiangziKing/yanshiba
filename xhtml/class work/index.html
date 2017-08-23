@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>xhtml 结课作业 仿京东商城首页 栏目页 商品页</title>
+    <link rel="stylesheet" type="text/css" href="./images/reset.css">
+    <link rel="stylesheet" type="text/css" href="./images/index.css">
+</head>
+
+<body>
+    <div id="container">
+        <div id="header">
+            <div id="h_top">
+                <div id="h_top_l">
+                    <p>
+                        您好，欢迎光临本店！ <a style="color:#22447b" href="user.php">[登录]</a>
+                        <a style="color:#22447b" href="user.php?act=register">[免费注册]&nbsp;&nbsp;</a>
+                    </p>
+                </div>
+                <div id="h_top_r">
+                    <a href="flow.php">查看购物车</a>|
+                    <a href="pick_out.php">选购中心</a>|
+                    <a href="tag_cloud.php">标签云</a>|
+                    <a href="quotation.php">报价单</a>
+                </div>
+            </div>
+            <div id="h_main">
+                <div id="h_main_l"></div>
+                <div id="h_main_b"></div>
+                <div id="h_main_r">
+                    <a href="flow.php" title="查看购物车">物车中 0 </a>
+                </div>
+            </div>
+            <div id="nav">
+                <ul>
+                    <li class="curs"> <span class="l"></span><span class="r"></span><a href="index.php">首页</a></li>
+                    <li><a href="category.php?id=12">时尚化妆品</a></li>
+                    <li><a href="category.php?id=6">时尚手表</a></li>
+                    <li><a href="category.php?id=1">精美包包</a></li>
+                    <li><a href="group_buy.php">团购商品</a></li>
+                    <li><a href="activity.php">优惠活动</a></li>
+                    <li><a href="http://www.68ecshop.com/category-37-b0.html" target="_blank">EC免费模版</a></li>
+                    <li><a href="http://www.68ecshop.com" target="_blank">EC商业模版</a></li>
+                </ul>
+            </div>
+        </div>
+        <div id="main">
+            <div id="lside">
+                <div id="catalog">
+                    <div class="subtitle">所有分类</div>
+                    <dl>
+                        <dt><a href="category.php?id=1">精美包包</a></dt>
+                        <dd class="clearfix">
+                            <p onmouseover="this.className='itemsbg'" onmouseout="this.className=''" class=""><a href="category.php?id=2" title="双肩包" class="txtdot">双肩包</a></p>
+                            <p onmouseover="this.className='itemsbg'" onmouseout="this.className=''" class=""><a href="category.php?id=3" title="手提包" class="txtdot">手提包</a></p>
+                            <p onmouseover="this.className='itemsbg'" onmouseout="this.className=''" class=""><a href="category.php?id=4" title="女包" class="txtdot">女包</a></p>
+                            <p onmouseover="this.className='itemsbg'" onmouseout="this.className=''" class=""><a href="category.php?id=5" title="男包" class="txtdot">男包</a></p>
+                        </dd>
+                    </dl>
+                    <dl>
+                        <dt><a href="category.php?id=6">时尚手表</a></dt>
+                        <dd class="clearfix">
+                            <p onmouseover="this.className='itemsbg'" onmouseout="this.className=''" class=""><a href="category.php?id=7" title="充电器" class="txtdot">充电器</a></p>
+                            <p onmouseover="this.className='itemsbg'" onmouseout="this.className=''" class=""><a href="category.php?id=8" title="男表" class="txtdot">男表</a></p>
+                            <p onmouseover="this.className='itemsbg'" onmouseout="this.className=''" class=""><a href="category.php?id=9" title="女表" class="txtdot">女表</a></p>
+                            <p onmouseover="this.className='itemsbg'" onmouseout="this.className=''" class=""><a href="category.php?id=11" title="情侣表" class="txtdot">情侣表</a></p>
+                        </dd>
+                    </dl>
+                    <dl>
+                        <dt><a href="category.php?id=12">时尚化妆品</a></dt>
+                        <dd class="clearfix">
+                            <p onmouseover="this.className='itemsbg'" onmouseout="this.className=''" class=""><a href="category.php?id=13" title="润肤霜" class="txtdot">润肤霜</a></p>
+                            <p onmouseover="this.className='itemsbg'" onmouseout="this.className=''" class=""><a href="category.php?id=14" title="面膜" class="txtdot">面膜</a></p>
+                            <p onmouseover="this.className='itemsbg'" onmouseout="this.className=''" class=""><a href="category.php?id=15" title="彩妆用品" class="txtdot">彩妆用品</a></p>
+                        </dd>
+                    </dl>
+                    <dl>
+                        <dt><a href="category.php?id=16">潮流卫衣</a></dt>
+                        <dd class="clearfix">
+                            <p onmouseover="this.className='itemsbg'" onmouseout="this.className=''"><a href="category.php?id=17" title="男士卫衣" class="txtdot">男士卫衣</a></p>
+                            <p onmouseover="this.className='itemsbg'" onmouseout="this.className=''"><a href="category.php?id=18" title="女式卫衣" class="txtdot">女式卫衣</a></p>
+                            <p onmouseover="this.className='itemsbg'" onmouseout="this.className=''"><a href="category.php?id=19" title="进口卫衣" class="txtdot">进口卫衣</a></p>
+                        </dd>
+                    </dl>
+                </div>
+                <div class="clr"></div>
+                <div id="salesrank">
+                    <div class="subtitle">销售排行</div>
+                    <ul id="top10">
+                        <li>
+                            <div class="first">
+                                <div class="fl">
+                                    <font style="color:#F00; font-weight:bold">1.</font> <a href="goods.php?id=40" title="">芙丽芳丝时尚沐...</a>
+                                </div>
+                                <div class="fr"><b class="f1">￥50元</b></div>
+                            </div>
+                            <div class="last">
+                                <a href="goods.php?id=40"><img src="images/201111/thumb_img/40_thumb_G_1320463476957.jpg" alt="" align="left"></a>
+                                <b class="f1">1。</b> <a href="goods.php?id=40" title=""><b>芙丽芳丝时尚沐...</b></a>
+                                <br> 本店售价：
+                                <b class="f1">￥50元</b>
+                                <br>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="first">
+                                <div class="fl">
+                                    <font style="color:#F00; font-weight:bold">2.</font> <a href="goods.php?id=35" title="">限量版休闲帆布...</a>
+                                </div>
+                                <div class="fr"><b class="f1">￥100元</b></div>
+                            </div>
+                            <div class="last">
+                                <a href="goods.php?id=35"><img src="images/201111/thumb_img/35_thumb_G_1320463197668.jpg" alt="" align="left"></a>
+                                <b class="f1">2。</b> <a href="goods.php?id=35" title=""><b>限量版休闲帆布...</b></a>
+                                <br> 本店售价：
+                                <b class="f1">￥100元</b>
+                                <br>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="first">
+                                <div class="fl">
+                                    <font style="color:#F00; font-weight:bold">3.</font> <a href="goods.php?id=41" title="">天梭Tisso...</a>
+                                </div>
+                                <div class="fr"><b class="f1">￥600元</b></div>
+                            </div>
+                            <div class="last">
+                                <a href="goods.php?id=41"><img src="images/201111/thumb_img/41_thumb_G_1320463547459.jpg" alt="" align="left"></a>
+                                <b class="f1">3。</b> <a href="goods.php?id=41" title=""><b>天梭Tisso...</b></a>
+                                <br> 本店售价：
+                                <b class="f1">￥600元</b>
+                                <br>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="first">
+                                <div class="fl">
+                                    <font style="color:#F00; font-weight:bold">4.</font> <a href="goods.php?id=39" title="">雅诗兰黛15色...</a>
+                                </div>
+                                <div class="fr"><b class="f1">￥20元</b></div>
+                            </div>
+                            <div class="last">
+                                <a href="goods.php?id=39"><img src="images/201111/thumb_img/39_thumb_G_1320463435051.jpg" alt="" align="left"></a>
+                                <b class="f1">4。</b> <a href="goods.php?id=39" title=""><b>雅诗兰黛15色...</b></a>
+                                <br> 本店售价：
+                                <b class="f1">￥20元</b>
+                                <br>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="first">
+                                <div class="fl">
+                                    <font style="color:#F00; font-weight:bold">5.</font> <a href="goods.php?id=37" title="">SUKI 蓝莓...</a>
+                                </div>
+                                <div class="fr"><b class="f1">￥40元</b></div>
+                            </div>
+                            <div class="last">
+                                <a href="goods.php?id=37"><img src="images/201111/thumb_img/37_thumb_G_1320463329422.jpg" alt="" align="left"></a>
+                                <b class="f1">5。</b> <a href="goods.php?id=37" title=""><b>SUKI 蓝莓...</b></a>
+                                <br> 本店售价：
+                                <b class="f1">￥40元</b>
+                                <br>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="first">
+                                <div class="fl">
+                                    <font style="color:#F00; font-weight:bold">6.</font> <a href="goods.php?id=36" title="">限量版休闲帆布...</a>
+                                </div>
+                                <div class="fr"><b class="f1">￥100元</b></div>
+                            </div>
+                            <div class="last">
+                                <a href="goods.php?id=36"><img src="images/201111/thumb_img/36_thumb_G_1320463231592.jpg" alt="" align="left"></a>
+                                <b class="f1">6。</b> <a href="goods.php?id=36" title=""><b>限量版休闲帆布...</b></a>
+                                <br> 本店售价：
+                                <b class="f1">￥100元</b>
+                                <br>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                <div class="clr"></div>
+                <div id="brand">
+                    <div class="subtitle">品牌专卖</div>
+                </div>
+                <div class="clr"></div>
+                <div id="lad"></div>
+                <div id="query1">
+                    <div class="subtitle">发货查询</div>
+                </div>
+                <div id="query2">
+                    <div class="subtitle">订单查询</div>
+                </div>
+            </div>
+            <div id="rside">
+                <div id="main_top">
+                    <div id="main_left"></div>
+                    <div id="main_right">
+                        <div id="main_right_top"></div>
+                        <div id="main_right_bottom"></div>
+                    </div>
+                </div>
+                <div class="five"></div>
+                <div class="five"></div>
+                <div class="five"></div>
+                <div class="five"></div>
+                <div class="five"></div>
+            </div>
+        </div>
+        <div class="clr"></div>
+        <div id="footer">
+            <div id="footer_top">
+                <div class="fl">
+                    <div>
+                        <span>新手上路</span>
+                        <ul>
+                            <li><a href="#">售后流程</a></li>
+                            <li><a href="#">购物流程</a></li>
+                            <li><a href="#">订购方式</a></li>
+                        </ul>
+                    </div>
+                    <div>
+                        <span>配送与支付</span>
+                        <ul>
+                            <li><a href="#">货到付款区域</a></li>
+                            <li><a href="#">配送支付智能查询</a></li>
+                            <li><a href="#">支付方式说明</a></li>
+                        </ul>
+                    </div>
+                    <div>
+                        <span>会员中心</span>
+                        <ul>
+                            <li><a href="#">资金管理</a></li>
+                            <li><a href="#">我的收藏</a></li>
+                            <li><a href="#">我的订单</a></li>
+                        </ul>
+                    </div>
+                    <div>
+                        <span>服务保障</span>
+                        <ul>
+                            <li><a href="#">退换货原则</a></li>
+                            <li><a href="#">售后服务保证</a></li>
+                            <li><a href="#">产品质量保证</a></li>
+                        </ul>
+                    </div>
+                    <div>
+                        <span>联系我们</span>
+                        <ul>
+                            <li><a href="#">投诉与建议</a></li>
+                            <li><a href="#">网站故障报告</a></li>
+                            <li><a href="#">选机咨询</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="fr">
+                    <p>
+                        <strong>订购热线</strong>（免长途费）
+                        <br>
+                        <strong class="r">400 600 5505</strong>
+                    </p>
+                    <p>
+                        <strong>客户服务热线</strong>（免长途费）
+                        <br>
+                        <strong class="r">400 600 5505</strong>
+                    </p>
+                </div>
+            </div>
+            <div class="clr"></div>
+            <div id="footer_main">
+                <p>
+                    <a href="http://www.68ecshop.com/" target="_blank" title="" class="linkTxt">ecshop</a>
+                    <a href="http://www.68ecshop.com/" target="_blank" title="" class="linkTxt">ecshop模板</a>
+                    <a href="http://chajian.68ecshop.com/" target="_blank" title="" class="linkTxt"></a>
+                    <a href="http://www.68ecshop.com/category-32-b0.html" target="_blank" title="ecshop模板" class="linkTxt">ecshop模板</a>
+                    <a href="http://www.68ecshop.com/category-32-b0.html" target="_blank" title="ecshop模板堂" class="linkTxt">ecshop模板堂</a>
+                    <a href="http://www.68ecshop.com/" target="_blank" title="ecshop官网" class="linkTxt">ecshop官网</a>
+                    <a href="http://www.68ecshop.com/ecshop_topic/ecshop_develop/" target="_blank" title="ecshop二次开发" class="linkTxt">ecshop二次开发</a>
+                    <a href="http://www.68ecshop.com/category-37-b0.html" target="_blank" title="ecshop免费模板" class="linkTxt">ecshop免费模板</a>
+                    <a href="http://www.68ecshop.com/article_cat-30.html" target="_blank" title="ecshop教程" class="linkTxt">ecshop教程</a>
+                </p>
+            </div>
+            <div class="clr"></div>
+            <div id="footer_bottom">
+                <img src="./images/fot_img0.gif">
+            </div>
+            <div id="footer_bottom2">
+                <p>
+                    © 2005-2017 京东商城模板-商之翼旗下-ecshop模板二次开发68ecshop.com 版权所有，并保留所有权利。
+                </p>
+                <br />
+                <p>
+                    共执行 7 个查询，用时 0.046612 秒，在线 3 人，Gzip 已禁用，占用内存 3.418 MB
+                </p>
+                <img src="api/cron.php?t=1503428428" alt="" style="width:0px;height:0px;">
+                <p>
+                    <a href="http://www.ecshop.com" target="_blank">Powered&nbsp;by&nbsp;<strong><span style="color: #3366FF">ECShop</span>&nbsp;<span style="color: #FF9966">v2.7.3</span></strong></a>
+                </p>
+                <p>
+                    <a href="http://www.68ecshop.com">68ecshop版权所有</a>
+                </p>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
